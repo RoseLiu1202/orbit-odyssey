@@ -1,8 +1,8 @@
 import { useState } from "react";
 import ThreeScene from './components/ThreeScene.jsx';
-import Timeline from "./components/Timeline.jsx";
+import Timeline from "./components/timeline.jsx";
 import InfoCard from "./components/InfoCard.jsx";
-import EarthFocus from './components/EarthFocus.jsx';
+import EarthFocus from './components/earthFocus.jsx';
 import timelineData from './data/timelineData.json';
 import './styles/App.css';
 
