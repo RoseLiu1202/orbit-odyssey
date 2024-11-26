@@ -167,7 +167,7 @@ const ThreeScene = ({ year }) => {
 };
 
 ThreeScene.propTypes = {
-    year: PropTypes.number.isRequired, // Year is a required number
+    year: PropTypes.number, // Year is a required number
 };
 
 export default ThreeScene;

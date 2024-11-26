@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { Bar } from "react-chartjs-2";
 import "../styles/Timeline.css";
-import { throttle } from "lodash";
 
 import {
     Chart as ChartJS,
@@ -101,19 +100,6 @@ const Timeline = ({ onYearChange, onYearHover, viewMode }) => { // Receive viewM
 
     const chartData = { labels, datasets };
 
-// Add throttle to handle rapid hover events and empty hover states
-    const throttledOnHover = throttle((event, chartElement, labels, onYearHover) => {
-        if (chartElement.length > 0) {
-            // A bar is hovered
-            const yearIndex = chartElement[0].index;
-            const year = labels[yearIndex];
-            onYearHover?.(year);
-        } else {
-            // No bar is hovered
-            onYearHover?.(null);
-        }
-    }, 50); // Adjust delay as needed
-
     const options = {
         indexAxis: "y",
         scales: {
@@ -145,8 +131,11 @@ const Timeline = ({ onYearChange, onYearHover, viewMode }) => { // Receive viewM
         maintainAspectRatio: false,
         elements: { bar: { barThickness: 5 } },
         onHover: (event, chartElement) => {
-            // Handle both active and inactive hover states
-            throttledOnHover(event, chartElement, labels, onYearHover);
+            if (chartElement.length > 0) {
+                const yearIndex = chartElement[0].index;
+                const year = labels[yearIndex];
+                onYearHover?.(year);
+            }
         },
         onClick: (event, chartElement) => {
             if (chartElement.length > 0) {
@@ -156,7 +145,6 @@ const Timeline = ({ onYearChange, onYearHover, viewMode }) => { // Receive viewM
             }
         },
     };
-
 
     return (
         <div style={{ height: "900px", width: "100%" }}>
@@ -169,7 +157,7 @@ const Timeline = ({ onYearChange, onYearHover, viewMode }) => { // Receive viewM
 Timeline.propTypes = {
     onYearChange: PropTypes.func,
     onYearHover: PropTypes.func,
-    viewMode: PropTypes.string.isRequired, // Add this to PropTypes
+    viewMode: PropTypes.string, // Add this to PropTypes
 };
 
 export default Timeline;
