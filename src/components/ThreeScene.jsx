@@ -136,8 +136,18 @@ const ThreeScene = ({ year }) => {
 
         return () => {
             window.removeEventListener('resize', handleResize);
+
+            planetsRef.current.forEach(({ planet, label }) => {
+                if (planet.material.map) planet.material.map.dispose();
+                if (planet.material) planet.material.dispose();
+                planet.geometry.dispose();
+                if (label.material.map) label.material.map.dispose();
+                label.material.dispose();
+            });
+
             renderer.dispose();
         };
+
     }, []);
 
     useEffect(() => {
@@ -155,8 +165,11 @@ const ThreeScene = ({ year }) => {
             ];
 
             const activePlanets = yearsMapping.find(({ range }) => year >= range[0] && year <= range[1])?.visible || [];
+
             planetsRef.current.forEach(({ planet, name }) => {
-                planet.material.opacity = activePlanets.includes(name) ? 1 : 0.3;
+                if (planet?.material) {
+                    planet.material.opacity = activePlanets.includes(name) ? 1 : 0.3;
+                }
             });
         };
 

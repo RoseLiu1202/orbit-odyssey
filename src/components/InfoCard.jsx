@@ -4,24 +4,24 @@ import timelineData from "./../data/timelineData.json";
 import "../styles/InfoCard.css";
 
 const countryFlags = {
-    "USA": "🇺🇸",
-    "USSR": "☭",
-    "Europe": "🇪🇺",
-    "UK": "🇬🇧",
-    "Canada": "🇨🇦",
-    "Japan": "🇯🇵",
-    "China": "🇨🇳",
-    "India": "🇮🇳",
-    "Italy": "🇮🇹",
-    "Russia": "🇷🇺",
-    "Poland": "🇵🇱",
-    "France": "🇫🇷"
+    USA: "🇺🇸",
+    USSR: "☭",
+    Europe: "🇪🇺",
+    UK: "🇬🇧",
+    Canada: "🇨🇦",
+    Japan: "🇯🇵",
+    China: "🇨🇳",
+    India: "🇮🇳",
+    Italy: "🇮🇹",
+    Russia: "🇷🇺",
+    Poland: "🇵🇱",
+    France: "🇫🇷",
 };
 
 const discoveryTypeLabels = {
-    'TechAdvance': '🛸 Technological Achievement',
-    'HumanInSpace': '👨‍🚀 Human Spaceflight',
-    'Contact': '🌍 Planetary Exploration'
+    TechAdvance: "🛸 Technological Achievement",
+    HumanInSpace: "👨‍🚀 Human Spaceflight",
+    Contact: "🌍 Planetary Exploration",
 };
 
 const InfoCard = ({ year, viewMode }) => {
@@ -35,8 +35,8 @@ const InfoCard = ({ year, viewMode }) => {
     const yearData = timelineData.find((entry) => entry.year === year);
 
     const getCountryDisplay = (country) => {
-        const mainCountry = country.split('(')[0].trim();
-        const flag = countryFlags[mainCountry] || '';
+        const mainCountry = country.split("(")[0].trim();
+        const flag = countryFlags[mainCountry] || "";
         return `${flag} ${country}`;
     };
 
@@ -44,8 +44,6 @@ const InfoCard = ({ year, viewMode }) => {
 
     const getAllHighlights = (discovery) => {
         const highlights = [];
-
-        // Loop through all keys in the discovery object
         Object.keys(discovery).forEach((key) => {
             if (key.startsWith("TechAdvance")) {
                 highlights.push({ text: discovery[key], type: "TechAdvance" });
@@ -55,7 +53,6 @@ const InfoCard = ({ year, viewMode }) => {
                 highlights.push({ text: discovery[key], type: "Contact" });
             }
         });
-
         return highlights;
     };
 
@@ -73,8 +70,9 @@ const InfoCard = ({ year, viewMode }) => {
         if (!yearData) return;
 
         const currentMission = yearData.discoveries[currentMissionIndex];
-        const highlights = getAllHighlights(currentMission);
+        if (!currentMission) return;
 
+        const highlights = getAllHighlights(currentMission);
         if (!highlights.length) return;
 
         let currentStepCount = 0;
@@ -83,6 +81,12 @@ const InfoCard = ({ year, viewMode }) => {
         }
         currentStepCount += currentHighlightIndex;
         setCurrentStep(currentStepCount);
+
+        setCurrentContent({
+            missionName: currentMission.missionName,
+            country: currentMission.country,
+            currentHighlight: highlights[currentHighlightIndex] || null,
+        });
 
         const showNextHighlight = () => {
             if (currentHighlightIndex < highlights.length - 1) {
@@ -98,23 +102,8 @@ const InfoCard = ({ year, viewMode }) => {
                     setCurrentHighlightIndex(0);
                     setIsVisible(true);
                 }, 1000);
-            } else {
-                setTimeout(() => {
-                    setIsVisible(false);
-                    setTimeout(() => {
-                        setCurrentMissionIndex(0);
-                        setCurrentHighlightIndex(0);
-                        setIsVisible(true);
-                    }, 1000);
-                }, 5000);
             }
         };
-
-        setCurrentContent({
-            missionName: currentMission.missionName,
-            country: currentMission.country,
-            currentHighlight: highlights[currentHighlightIndex],
-        });
 
         const timer = setTimeout(showNextHighlight, 3000);
         return () => clearTimeout(timer);
@@ -129,20 +118,20 @@ const InfoCard = ({ year, viewMode }) => {
 
     const progressPercentage = totalSteps > 0 ? (currentStep / totalSteps) * 100 : 0;
 
+    if (!yearData) {
+        return <div className="info-card-container">No data available for this year</div>;
+    }
+
     return (
         <div className="info-card-container">
-            {!yearData}
-
             {currentContent && (
                 <>
                     <div className="top-content">
-                        <div className={`year-display ${isVisible ? 'fade-in' : 'fade-out'}`}>
+                        <div className={`year-display ${isVisible ? "fade-in" : "fade-out"}`}>
                             {yearData.year}
                         </div>
-                        <div className={`mission-info ${isVisible ? 'fade-in' : 'fade-out'}`}>
-                            <div className="mission-name">
-                                Mission: {currentContent.missionName}
-                            </div>
+                        <div className={`mission-info ${isVisible ? "fade-in" : "fade-out"}`}>
+                            <div className="mission-name">Mission: {currentContent.missionName}</div>
                             {viewMode === "country" && (
                                 <div
                                     className="country-flag"
@@ -153,15 +142,15 @@ const InfoCard = ({ year, viewMode }) => {
                             )}
                             {viewMode === "discovery" && (
                                 <div className="discovery-type">
-                                    {getFormattedType(currentContent.currentHighlight?.type || '')}
+                                    {getFormattedType(currentContent.currentHighlight?.type || "")}
                                 </div>
                             )}
                         </div>
                     </div>
                     <div className="content-wrapper">
-                        <div className={`highlight-content ${isVisible ? 'fade-in' : 'fade-out'}`}>
+                        <div className={`highlight-content ${isVisible ? "fade-in" : "fade-out"}`}>
                             <div className="highlight-text">
-                                {currentContent.currentHighlight.text}
+                                {currentContent.currentHighlight?.text || "No highlight available"}
                             </div>
                         </div>
                     </div>
