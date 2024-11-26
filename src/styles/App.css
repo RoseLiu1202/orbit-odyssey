@@ -1,0 +1,44 @@
+/* General app layout */
+.app-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+}
+
+/* Three.js container (Earth visualization) */
+.three-container {
+  width: 100%;
+  height: 100%;
+  position: absolute; /* Ensure it layers properly */
+  top: 0;
+  left: 0;
+  z-index: 1; /* Above the info card and progress bar */
+  background: black;
+  pointer-events: auto; /* Ensure interactions are allowed */
+}
+
+/* Earth focus wrapper (topmost layer) */
+.earth-focus-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure it is above everything else */
+}
+
+
+.futuristic-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px; /* Rounded corners */
+  background: linear-gradient(145deg, #000000, #1a1f33); /* Futuristic background gradient */
+  border: 1px solid rgb(255, 255, 255); /* Thin border with glow color */
+  overflow: hidden;
+}
+
+
+
+
+

@@ -1,0 +1,93 @@
+[
+  {
+    "name": "Sun",
+    "size": "1,392,700 km diameter",
+    "key_properties": {
+      "surface_temperature": "5,500°C",
+      "core_temperature": "15 million°C",
+      "composition": "Mostly hydrogen and helium",
+      "luminosity": "3.828 x 10^26 watts",
+      "age": "4.6 billion years"
+    }
+  },
+  {
+    "name": "Mercury",
+    "size": "4,880 km diameter",
+    "key_properties": {
+      "position": "1st planet from the Sun",
+      "surface_temperature": "-173°C to 427°C",
+      "moons": 0,
+      "composition": "Rocky"
+    }
+  },
+  {
+    "name": "Venus",
+    "size": "12,104 km diameter",
+    "key_properties": {
+      "position": "2nd planet from the Sun",
+      "surface_temperature": "462°C (average)",
+      "moons": 0,
+      "composition": "Rocky"
+    }
+  },
+  {
+    "name": "Earth",
+    "size": "12,742 km diameter",
+    "key_properties": {
+      "position": "3rd planet from the Sun",
+      "surface_temperature": "-88°C to 58°C",
+      "moons": 1,
+      "composition": "Rocky"
+    }
+  },
+  {
+    "name": "Mars",
+    "size": "6,779 km diameter",
+    "key_properties": {
+      "position": "4th planet from the Sun",
+      "surface_temperature": "-63°C (average)",
+      "moons": 2,
+      "composition": "Rocky"
+    }
+  },
+  {
+    "name": "Jupiter",
+    "size": "139,820 km diameter",
+    "key_properties": {
+      "position": "5th planet from the Sun",
+      "surface_temperature": "-108°C (cloud tops)",
+      "moons": 95,
+      "composition": "Gas giant"
+    }
+  },
+  {
+    "name": "Saturn",
+    "size": "116,460 km diameter",
+    "key_properties": {
+      "position": "6th planet from the Sun",
+      "surface_temperature": "-138°C",
+      "moons": 83,
+      "composition": "Gas giant"
+    }
+  },
+  {
+    "name": "Uranus",
+    "size": "50,724 km diameter",
+    "key_properties": {
+      "position": "7th planet from the Sun",
+      "surface_temperature": "-195°C",
+      "moons": 27,
+      "composition": "Ice giant"
+    }
+  },
+  {
+    "name": "Neptune",
+    "size": "49,244 km diameter",
+    "key_properties": {
+      "position": "8th planet from the Sun",
+      "surface_temperature": "-201°C",
+      "moons": 14,
+      "composition": "Ice giant"
+    }
+  }
+]

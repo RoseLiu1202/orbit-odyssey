@@ -1,0 +1,214 @@
+/* Import the space-themed font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+
+/* Info card container */
+.info-card-container {
+    position: absolute;
+    top: 3%; /* Keep it positioned correctly */
+    left: 10%;
+    width: 80%; /* Shrink width to prevent blocking the scene */
+    max-height: 80vh; /* Set a maximum height */
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1; /* Same level as the Three.js scene */
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Allow only child elements of the info card to interact */
+.info-card-container * {
+    pointer-events: auto; /* Allow interaction with specific content */
+}
+
+/* Ensure unused areas of the progress section don’t block interactions */
+.progress-section {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Lowest layer */
+    width: 90%; /* Adjust width as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none; /* Pass through clicks by default */
+}
+
+.progress-section * {
+    pointer-events: auto; /* Allow interaction with visible content */
+}
+
+/* Top section styling */
+.top-content {
+    text-align: center;
+    flex: 0 0 auto;
+    margin-bottom: 20px;
+}
+
+/* Content wrapper to control scrolling */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+/* Year display styling */
+.year-display {
+    font-size: 1.5em; /* Reduced font size */
+    font-weight: bold;
+    color: #9cf7ff;
+    margin-bottom: 20px;
+    transition: opacity 1s ease-in-out;
+    text-shadow: 0 0 10px #9cf7ff, 0 0 20px #9cf7ff;
+}
+
+/* Mission name styling */
+.mission-name {
+    font-size: 1.8em; /* Reduced font size */
+    font-weight: bold;
+    color: #ffffff;
+    transition: opacity 1s ease-in-out;
+    padding: 0 20px;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Country flag styling */
+.country-flag {
+    display: inline-block;
+    font-size: 1em; /* Reduced font size */
+    vertical-align: middle;
+    text-shadow: none;
+}
+
+/* Discovery type styling */
+.discovery-type {
+    font-size: 0.9em; /* Reduced font size */
+    margin-bottom: 0.8rem;
+    padding: 0.3em 0.8em; /* Adjusted padding */
+    border-radius: 4px;
+    display: inline-block;
+    text-transform: none;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.discovery-type[data-type="TechAdvance"] {
+    color: #7FFFD4;
+    text-shadow: 0 0 5px rgba(127, 255, 212, 0.5);
+}
+
+.discovery-type[data-type="HumanInSpace"] {
+    color: #FF69B4;
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+
+.discovery-type[data-type="Contact"] {
+    color: #9cf7ff;
+    text-shadow: 0 0 5px rgba(156, 247, 255, 0.5);
+}
+
+/* Highlighted content styling */
+.highlight-content {
+    text-align: center;
+    font-size: 1.2em; /* Reduced font size */
+    line-height: 1.4; /* Adjusted line height */
+    transition: opacity 1s ease-in-out;
+    padding: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.highlight-text {
+    color: #a3ffda;
+    text-shadow: 0 0 8px #a3ffda, 0 0 16px #a3ffda;
+}
+
+
+/* Progress bar container */
+.progress-bar-container {
+    position: relative;
+    width: 50%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Progress bar fill */
+.progress-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.7), #ffffff);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: shine 1.5s infinite;
+}
+
+/* Progress counter styling */
+.progress-counter {
+    font-size: 0.8em; /* Reduced font size */
+    color: #9cf7ff;
+    text-shadow: 0 0 5px #9cf7ff;
+    font-family: 'Orbitron', sans-serif;
+    opacity: 0.8;
+}
+
+/* Animation keyframes */
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Fading animations */
+.fade-in {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .year-display {
+        font-size: 1.3em; /* Smaller for mobile */
+    }
+
+    .mission-name {
+        font-size: 1.5em; /* Smaller for mobile */
+    }
+
+    .discovery-type {
+        font-size: 0.8em; /* Smaller for mobile */
+    }
+
+    .highlight-content {
+        font-size: 1em; /* Smaller for mobile */
+    }
+}
