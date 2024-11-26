@@ -7,7 +7,7 @@ import timelineData from './data/timelineData.json';
 import './styles/App.css';
 
 const App = () => {
-    const [selectedYear, setSelectedYear] = useState(1968);
+    const [selectedYear, setSelectedYear] = useState(null);
     const [hoveredYear, setHoveredYear] = useState(null);
     const [viewMode, setViewMode] = useState("country"); // Manage viewMode in App
 
