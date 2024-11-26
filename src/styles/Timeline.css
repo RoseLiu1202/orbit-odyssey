@@ -3,7 +3,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 25%; /* Adjust width as needed */
+    width: 30%; /* Adjust width as needed */
     height: 100%;
     z-index: 10; /* Ensure it overlays the 3D scene */
     overflow-y: auto; /* Enable vertical scrolling if needed */

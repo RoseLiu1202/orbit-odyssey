@@ -8,7 +8,7 @@ import './styles/App.css';
 
 const App = () => {
     const [selectedYear, setSelectedYear] = useState(1968);
-    //const [hoveredYear, setHoveredYear] = useState(null);
+    const [hoveredYear, setHoveredYear] = useState(null);
     const [viewMode, setViewMode] = useState("country"); // Manage viewMode in App
 
     return (
@@ -29,7 +29,7 @@ const App = () => {
                 </div>
                 <Timeline
                     onYearChange={setSelectedYear}
-                    //onYearHover={setHoveredYear}
+                    onYearHover={setHoveredYear}
                     viewMode={viewMode} // Pass viewMode to Timeline
                 />
             </div>
@@ -44,7 +44,7 @@ const App = () => {
             {/* Info Card Section */}
             <div className="info-card-container">
                 <InfoCard
-                    year={selectedYear}
+                    year={hoveredYear || selectedYear}
                     data={timelineData}
                     viewMode={viewMode} // Pass viewMode to InfoCard
                 />
