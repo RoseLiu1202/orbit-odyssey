@@ -1,32 +1,49 @@
 /* General app layout */
 .app-container {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  display: flex;
+  display: flex; /* Flexbox layout to arrange children side by side */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  overflow: hidden; /* Prevent overflow from children */
 }
 
-/* Three.js container (Earth visualization) */
-.three-container {
-  width: 100%;
-  height: 100%;
-  position: absolute; /* Ensure it layers properly */
-  top: 0;
-  left: 0;
-  z-index: 1; /* Above the info card and progress bar */
-  background: black;
-  pointer-events: auto; /* Ensure interactions are allowed */
+/* Timeline container */
+.timeline-container {
+  flex: 3; /* Take 30% of the width */
+  height: 100%; /* Full height of the container */
+  overflow-y: scroll; /* Allow vertical scrolling */
+  border-radius: 20px; /* Rounded corners */
+  background: linear-gradient(145deg, #000000, #1a1f33); /* Futuristic background gradient */
+  border: 1px solid rgb(255, 255, 255); /* Thin border with glow color */  padding: 20px; /* Add spacing inside the container */
+  box-sizing: border-box; /* Include padding in size calculations */
+  color: white; /* Text color */
 }
 
-/* Earth focus wrapper (topmost layer) */
-.earth-focus-wrapper {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000; /* Ensure it is above everything else */
+.graphicScenes {
+  flex: 7; /* Take 70% of the width */
+  height: 100%; /* Full height of the container */
+  background: #000000; /* Background color for Three.js visualization */
+  position: relative; /* Ensure relative positioning */
+  display: flex; /* Flexbox to center the canvas */
+  justify-content: center; /* Horizontally center the canvas */
+  align-items: center; /* Vertically center the canvas */
 }
 
+.timeline-title {
+  text-align: center; /* Center the title horizontally */
+  margin-bottom: 20px; /* Add spacing below the title */
+  color: white; /* Title text color */
+  font-family: 'Orbitron', sans-serif;
+  font-size: 8px; /* Font size for the title */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+/*!* Earth focus wrapper (topmost layer) *!*/
+/*.earth-focus-wrapper {*/
+/*  position: fixed;*/
+/*  top: 20px;*/
+/*  right: 20px;*/
+/*  z-index: 1000; !* Ensure it is above everything else *!*/
+/*}*/
 
 .futuristic-frame {
   position: relative;
@@ -37,6 +54,37 @@
   border: 1px solid rgb(255, 255, 255); /* Thin border with glow color */
   overflow: hidden;
 }
+
+/* Bottom Links Container */
+.bottom-links {
+  position: fixed; /* Fix to the bottom */
+  bottom: 20px; /* Space from the bottom */
+  right: 20px; /* Align to the right */
+  display: flex; /* Arrange items in a row */
+  gap: 10px; /* Space between buttons */
+  z-index: 1000; /* Ensure above other elements */
+}
+
+/* Shared Button Styles */
+.bottom-links div {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  padding: 10px 15px; /* Padding for better click area */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Depth effect */
+  font-size: 14px; /* Text size */
+  text-align: center; /* Center the text */
+}
+
+.bottom-links a {
+  color: #9cf7ff; /* Text color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+.bottom-links a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
 
 
 

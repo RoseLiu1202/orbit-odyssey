@@ -1,52 +1,47 @@
-/* Timeline container as overlay */
-.timeline-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 30%; /* Adjust width as needed */
-    height: 100%;
-    z-index: 10; /* Ensure it overlays the 3D scene */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-    padding: 10px;
-    color: white;
-}
 
-/* View Mode Selector */
-.timeline-container .view-mode-selector {
-    position: relative;
-    top: 0;
-    margin-bottom: 10px; /* Spacing between selector and timeline */
-    text-align: center;
-    border-radius: 8px;
-    padding: 5px 15px;
+/* Dropdown container for horizontal alignment */
+.timeline-container .dropdown-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 20px; /* Space between dropdowns */
+    justify-content: space-between; /* Equal spacing between dropdowns */
+    align-items: flex-start; /* Align labels and dropdowns */
+    margin-bottom: 20px; /* Space below the dropdown container */
 }
 
-/* Label and Dropdown */
-.timeline-container .view-mode-selector label {
-    font-family: 'Orbitron', sans-serif;
+/* Individual dropdown wrapper */
+.timeline-container .dropdown-wrapper {
+    flex: 1; /* Equal width for dropdowns */
+    display: flex;
+    flex-direction: column; /* Label on top of dropdown */
+    align-items: flex-start; /* Align label and dropdown */
+}
+
+/* Dropdown label */
+.timeline-container .dropdown-wrapper label {
+    font-family: 'Roboto', sans-serif;
     font-size: 0.9em;
     color: #ffffff;
-    margin-right: 10px;
+    margin-bottom: 5px; /* Space between label and dropdown */
 }
 
-.timeline-container .view-mode-selector select {
+/* Dropdown select */
+.timeline-container .dropdown-wrapper select {
     background-color: #1a1a1a; /* Dark background */
     color: #9cf7ff; /* Cyan text */
     border: 1px solid #4a4a4a; /* Subtle border */
     border-radius: 5px;
     padding: 5px 10px;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 0.9em;
     cursor: pointer;
+    height: 40px; /* Consistent dropdown height */
+    width: 100%; /* Full width of the wrapper */
     transition: all 0.3s ease-in-out;
 }
 
 /* Hover and Focus Effects */
-.timeline-container .view-mode-selector select:hover,
-.timeline-container .view-mode-selector select:focus {
+.timeline-container .dropdown-wrapper select:hover,
+.timeline-container .dropdown-wrapper select:focus {
     background-color: #222222; /* Slightly brighter on hover */
     color: #ffffff; /* White text */
     outline: none;

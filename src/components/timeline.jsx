@@ -8,13 +8,12 @@ import {
     LinearScale,
     BarElement,
     Title,
-    Legend,
 } from "chart.js";
 import timelineData from "./../data/timelineData.json";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title);
 
-const Timeline = ({ onYearChange, onYearHover, viewMode }) => { // Receive viewMode as a prop
+const Timeline = ({ onYearChange, onYearHover, viewMode, selectedCountries,selectedDiscoveries }) => { // Receive viewMode as a prop
     // Colors for the "type of discovery" mode
     const discoveryColors = {
         TechAdvance: "#f39c12",
@@ -51,7 +50,18 @@ const Timeline = ({ onYearChange, onYearHover, viewMode }) => { // Receive viewM
                 const trimmedCountry = country.trim();
                 const color = countryColors[trimmedCountry] || "black";
 
-                const existingDataset = datasets.find((dataset) => dataset.label === trimmedCountry);
+                // Skip countries not selected
+                if (
+                    selectedCountries.length > 0 &&
+                    !selectedCountries.includes("View All") &&
+                    !selectedCountries.includes(trimmedCountry)
+                ) {
+                    return;
+                }
+
+                const existingDataset = datasets.find(
+                    (dataset) => dataset.label === trimmedCountry
+                );
                 if (existingDataset) {
                     existingDataset.data[yearIndex] = segmentHeight;
                 } else {
@@ -77,11 +87,27 @@ const Timeline = ({ onYearChange, onYearHover, viewMode }) => { // Receive viewM
             ];
 
             discoveryTypes.forEach(({ type, color }) => {
+                // Show all datasets if "View All" is selected
+                if (
+                    selectedDiscoveries.length > 0 &&
+                    !selectedDiscoveries.includes("View All") &&
+                    !selectedDiscoveries.includes(type)
+                ) {
+                    return;
+                }
+
                 const totalDiscoveries = discoveries.reduce((total, discovery) => {
-                    return total + Object.keys(discovery).filter((key) => key.startsWith(type)).length;
+                    return (
+                        total +
+                        Object.keys(discovery).filter((key) =>
+                            key.startsWith(type)
+                        ).length
+                    );
                 }, 0);
 
-                const existingDataset = datasets.find((dataset) => dataset.label === type);
+                const existingDataset = datasets.find(
+                    (dataset) => dataset.label === type
+                );
                 if (existingDataset) {
                     existingDataset.data[yearIndex] = totalDiscoveries || 0;
                 } else {
@@ -99,33 +125,25 @@ const Timeline = ({ onYearChange, onYearHover, viewMode }) => { // Receive viewM
     }
 
     const chartData = { labels, datasets };
-
     const options = {
         indexAxis: "y",
         scales: {
             x: {
-                title: { display: true, text: "Number of Key Progress" },
+                position: "top",
+                title: { display: true, text: "Number of Key Milestones (source: Wikipedia)", color: "white", },
                 beginAtZero: true,
                 stacked: true,
+                ticks: { autoSkip: false , color: "white",},
+
             },
             y: {
-                title: { display: true, text: "Year" },
+                title: { display: true, text: "Year", color: "white", },
                 stacked: true,
-                ticks: { autoSkip: false },
+                ticks: { autoSkip: false , color: "white",},
             },
         },
         plugins: {
-            legend: {
-                position: "right",
-                title: {
-                    display: true,
-                    text: viewMode === "country" ? "Countries" : "Types of Discovery",
-                },
-            },
-            title: {
-                display: true,
-                text: "Interactive Timeline of Global Space Exploration",
-            },
+            legend: { display: false }, // Disable default legend
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -145,7 +163,6 @@ const Timeline = ({ onYearChange, onYearHover, viewMode }) => { // Receive viewM
             }
         },
     };
-
     return (
         <div style={{ height: "900px", width: "100%" }}>
             {/* Bar chart */}
@@ -158,6 +175,14 @@ Timeline.propTypes = {
     onYearChange: PropTypes.func,
     onYearHover: PropTypes.func,
     viewMode: PropTypes.string, // Add this to PropTypes
+    selectedCountries: PropTypes.arrayOf(PropTypes.string),
+    selectedDiscoveries: PropTypes.arrayOf(PropTypes.string)
 };
+
+Timeline.defaultProps = {
+    selectedCountries: ["View All"], // Default to "View All"
+    selectedDiscoveries: ["View All"],
+};
+
 
 export default Timeline;

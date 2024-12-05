@@ -26,15 +26,15 @@
 /* Ensure unused areas of the progress section don’t block interactions */
 .progress-section {
     position: fixed;
-    bottom: 30px;
-    left: 50%;
+    bottom: 8%;
+    left: 67%;
     transform: translateX(-50%);
-    z-index: 1; /* Lowest layer */
-    width: 90%; /* Adjust width as needed */
+    z-index: 1;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    pointer-events: none; /* Pass through clicks by default */
+    pointer-events: none;
 }
 
 .progress-section * {
@@ -170,7 +170,7 @@
 
 /* Progress counter styling */
 .progress-counter {
-    font-size: 0.8em; /* Reduced font size */
+    font-size: 1.2em; /* Reduced font size */
     color: #9cf7ff;
     text-shadow: 0 0 5px #9cf7ff;
     font-family: 'Orbitron', sans-serif;
@@ -211,4 +211,102 @@
     .highlight-content {
         font-size: 1em; /* Smaller for mobile */
     }
+}
+
+
+.navigation-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    color: #9cf7ff;
+}
+
+.nav-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.progress-bar-container {
+    flex: 1;
+    cursor: pointer;
+    height: 4px; /* 稍微加粗一些便于点击 */
+}
+
+.progress-bar-container:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar-container:hover .progress-bar-fill {
+    background: linear-gradient(90deg, rgba(156, 247, 255, 0.7), #9cf7ff);
+}
+
+/* 在现有的CSS中添加或更新以下样式 */
+
+.navigation-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    width: 2rem;
+    height: 2rem;
+    line-height: 1;
+}
+
+.nav-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    color: #9cf7ff;
+}
+
+.nav-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.progress-bar-container {
+    flex: 1;
+    cursor: pointer;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar-container:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar-container:hover .progress-bar-fill {
+    background: linear-gradient(90deg, rgba(156, 247, 255, 0.7), #9cf7ff);
 }

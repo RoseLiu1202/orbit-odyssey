@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbital Odyssey Process Book</title>
+    <style>
+        body {
+            background-color: #0d0d1a;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #4db8ff;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        .divider {
+            border-bottom: 1px solid #4db8ff;
+            margin-bottom: 20px;
+        }
+        .content {
+            padding: 10px 0;
+        }
+        .image-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .image-container img {
+            width: 45%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Orbital Odyssey Process Book</h1>
+    <div class="divider"></div>
+
+    <section id="overview">
+        <h2>Background and Motivation</h2>
+        <div class="content">
+            <p>
+                Our project aims to create a web-based 3D experience that brings to life the rich narrative of space exploration over the past 2 years. Using Three.js and WebXR, we're crafting an accessible,
+                immersive visualization that invites users to interactively explore space missions, highlighting the immense achievements and challenges faced by those who reach beyond our planet.
+                Through engaging 3D graphics and VR-ready features, users will journey through key moments in space exploration history, witnessing the trials, failures, and triumphs that have driven humankind's quest to understand and expand our boundaries.</p>
+        </div>
+    </section>
+
+    <section id="objectives">
+        <h2>Objectives</h2>
+        <div class="content">
+            <h3>Key Questions</h3>
+            <ul>
+                <li>What milestones have we made since the first human landing on moon in 1969?</li>
+                <li>How is space exploration a global effort and what are some key countries and agencies?</li>
+                <li>How far has human reached the universe and what exciting frontiers are next on our journey?</li>
+                <li>What are different types of progress we have made, including technology advancement, distance traveled, etc?</li>
+            </ul>
+
+            <h3>Benefits</h3>
+            <ul>
+                <li><strong>Enhanced Public Understanding</strong>: Viewers gain a deeper knowledge of space exploration and the technology behind it, bridging complex topics with clear visuals.</li>
+                <li><strong>Increased Interest in Space Science</strong>: Inspiring curiosity in space-related fields can attract more interest and support for space programs.</li>
+                <li><strong>Bridge Space Knowledge with Everyday Life</strong>: For instance, showing how certain satellite discoveries impact technology, climate science, or global communication.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="technology">
+        <h2>Technology Stack</h2>
+        <div class="content">
+            <ul>
+                <li><strong>Three.js:</strong> Core 3D graphics engine for creating interactive space visualizations</li>
+                <li><strong>WebXR:</strong> Optional immersive VR experience support</li>
+                <li><strong>JavaScript/HTML/CSS:</strong> Core web technologies for the application structure</li>
+                <li><strong>React:</strong> User interface development</li>
+                <li><strong>D3.js:</strong> Additional data visualization components</li>
+                <li><strong>WebGL:</strong> 3D rendering capabilities</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="data">
+        <h2>Data</h2>
+        <div class="content">
+            <p>Our primary data source is the Timeline of Space Exploration from Wikipedia, which was carefully curated and categorized to suit our visualization needs:</p>
+            <p><a href="https://en.wikipedia.org/wiki/Timeline_of_space_exploration#1960%E2%80%931969" target="_blank">Timeline of Space Exploration - Wikipedia</a></p>
+            <p>Data processing involved manual curation, categorization of events by type, standardization of data formats, and thorough verification for accuracy. We focused on significant space exploration milestones and achievements to create a comprehensive visualization of humanity's journey into space.</p>
+        </div>
+    </section>
+
+    <section id="must have features">
+        <h2>Must Have Features</h2>
+        <div class="content">
+            <ul>
+                <li><strong>Major Space Events Timeline</strong>
+                    <ul>
+                        <li>Annual timeline of significant space events</li>
+                        <li>Click interaction for users to select specific years</li>
+                        <li>Interactive window for filtering space events by type (Technological Achievement, Human Spaceflight, Planetary Exploration)</li>
+                    </ul>
+                </li>
+                <li><strong>Interactive Timeline</strong>
+                    <ul>
+                        <li>Use a slider to let users scroll through time</li>
+                        <li>Highlight missions that occurred during the selected period</li>
+                        <li>Filter options for mission types, countries, and exploration targets</li>
+                    </ul>
+                </li>
+                <li><strong>Launch Location and Date Visualization</strong>
+                    <ul>
+                        <li>Clearly display each object's launch site and date</li>
+                        <li>Provide spatial and temporal context to help users track the journey from Earth to space</li>
+                        <li>Visualize targeted planetary bodies for exploration missions</li>
+                    </ul>
+                </li>
+                <li><strong>Interactive Info Panels</strong>
+                    <ul>
+                        <li>Each object includes info panels detailing scientific data, mission objectives, and relevant imagery</li>
+                        <li>These panels enhance the educational aspect, offering users an in-depth understanding of the purpose and achievements of each mission</li>
+                        <li>Display country of origin, mission name, and specific achievements</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="optional features">
+        <h2>Optional Features</h2>
+        <div class="content">
+            <ul>
+                <li>Real-Time Orbit Display: Visualize satellites and other objects in their current orbits around Earth, providing users with an authentic sense of their position and movement in space.</li>
+                <li>Astronaut's Perspective Simulation: Allow users to "float" in space around key objects like the ISS or specific satellites, creating an immersive experience that simulates an astronaut's view and proximity to these technologies.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="initial designs">
+        <h2>Initial Designs</h2>
+        <div class="image-container">
+            <img src="./public/static/process/ID.png">
+            <img src="./public/static/process/ID2.png">
+            <img src="./public/static/process/ID3.png">
+        </div>
+    </section>
+
+    <section id="iterations">
+        <h2>Different Iterations</h2>
+        <div class="content">
+            <p><strong>First Iteration</strong></p>
+            <ul>
+                <li>processed and analyzed data (by year, success or failed, and country)</li>
+                <li>Created a 3D scene with camera and lighting with three.js</li>
+                <li>Added a rotating Earth object</li>
+                <li>Added dynamic location marker with green and red rings to indicate the location of launch</li>
+                <li>Added side panel to interact with the visualization</li>
+            </ul>
+
+            <p><strong>Second Iteration (current)</strong></p>
+            <ul>
+                <li>Implemented animated display of annual aerospace events and participating countries</li>
+                <li>Added 3D visualization of explored planets for each year</li>
+                <li>Enhanced 3D animations with text overlays for better understanding</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="next-steps">
+        <h2>Next Steps</h2>
+        <div class="content">
+            <ul>
+                <li><strong>Audio Enhancement</strong>
+                    <ul>
+                        <li>Add background music to create immersive atmosphere</li>
+                        <li>Implement sound effects for interactive elements</li>
+                        <li>Add audio controls for user preference</li>
+                    </ul>
+                </li>
+                <li><strong>Sidebar Improvements</strong>
+                    <ul>
+                        <li>Add collapsible functionality to the side panel</li>
+                        <li>Implement smooth transition animations</li>
+                        <li>Create toggle button for panel visibility</li>
+                    </ul>
+                </li>
+                <li><strong>Planetary Interactions</strong>
+                    <ul>
+                        <li>Add interactive effects between planets</li>
+                        <li>Implement gravitational visualization effects</li>
+                        <li>Create dynamic orbital paths between celestial bodies</li>
+                    </ul>
+                </li>
+                <li>Add light rays to indicate space launch</li>
+                <li>Implement data into the visualization</li>
+            </ul>
+        </div>
+    </section>
+</div>
+</body>
+</html>

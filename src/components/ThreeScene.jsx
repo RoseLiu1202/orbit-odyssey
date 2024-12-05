@@ -3,16 +3,23 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import PropTypes from 'prop-types';
 
-const ThreeScene = ({ year }) => {
+const ThreeScene = ({ year, containerRef}) => {
     const canvasRef = useRef(null);
     const planetsRef = useRef([]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
+        const container = containerRef.current;
+
+        if (!container) {
+            console.error('Container reference is not available');
+            return;
+        }
+
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(container.clientWidth, container.clientHeight);
 
         canvas.style.position = 'absolute';
         canvas.style.top = '0';
@@ -127,9 +134,11 @@ const ThreeScene = ({ year }) => {
 
         // Handle Resize
         const handleResize = () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            if (container) {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            }
         };
 
         window.addEventListener('resize', handleResize);
@@ -181,6 +190,7 @@ const ThreeScene = ({ year }) => {
 
 ThreeScene.propTypes = {
     year: PropTypes.number, // Year is a required number
+    containerRef: PropTypes.object.isRequired, // Add containerRef as a required prop
 };
 
 export default ThreeScene;
