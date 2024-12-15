@@ -2,18 +2,18 @@
 /* Dropdown container for horizontal alignment */
 .timeline-container .dropdown-container {
     display: flex;
-    gap: 20px; /* Space between dropdowns */
-    justify-content: space-between; /* Equal spacing between dropdowns */
-    align-items: flex-start; /* Align labels and dropdowns */
-    margin-bottom: 20px; /* Space below the dropdown container */
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
 }
 
 /* Individual dropdown wrapper */
 .timeline-container .dropdown-wrapper {
-    flex: 1; /* Equal width for dropdowns */
+    flex: 1;
     display: flex;
-    flex-direction: column; /* Label on top of dropdown */
-    align-items: flex-start; /* Align label and dropdown */
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 /* Dropdown label */
@@ -21,29 +21,29 @@
     font-family: 'Roboto', sans-serif;
     font-size: 0.9em;
     color: #ffffff;
-    margin-bottom: 5px; /* Space between label and dropdown */
+    margin-bottom: 5px;
 }
 
 /* Dropdown select */
 .timeline-container .dropdown-wrapper select {
-    background-color: #1a1a1a; /* Dark background */
-    color: #9cf7ff; /* Cyan text */
-    border: 1px solid #4a4a4a; /* Subtle border */
+    background-color: #1a1a1a;
+    color: #9cf7ff;
+    border: 1px solid #4a4a4a;
     border-radius: 5px;
     padding: 5px 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 0.9em;
     cursor: pointer;
-    height: 40px; /* Consistent dropdown height */
-    width: 100%; /* Full width of the wrapper */
+    height: 65px;
+    width: 100%;
     transition: all 0.3s ease-in-out;
 }
 
 /* Hover and Focus Effects */
 .timeline-container .dropdown-wrapper select:hover,
 .timeline-container .dropdown-wrapper select:focus {
-    background-color: #222222; /* Slightly brighter on hover */
-    color: #ffffff; /* White text */
+    background-color: #222222;
+    color: #ffffff;
     outline: none;
-    box-shadow: 0 0 10px #9cf7ff; /* Glowing hover effect */
+    box-shadow: 0 0 10px #9cf7ff;
 }

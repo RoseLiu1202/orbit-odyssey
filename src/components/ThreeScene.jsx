@@ -78,7 +78,7 @@ const ThreeScene = ({ year, containerRef}) => {
             const labelContext = labelCanvas.getContext('2d');
             labelCanvas.width = 256;
             labelCanvas.height = 64;
-            labelContext.font = '30px Arial';
+            labelContext.font = '70px Arial';
             labelContext.fillStyle = 'white';
             labelContext.textAlign = 'center';
             labelContext.fillText(name, 128, 32);

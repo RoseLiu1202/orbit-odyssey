@@ -8,10 +8,11 @@ import {
     LinearScale,
     BarElement,
     Title,
+    Legend,
 } from "chart.js";
 import timelineData from "./../data/timelineData.json";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Legend );
 
 const Timeline = ({ onYearChange, onYearHover, viewMode, selectedCountries,selectedDiscoveries }) => { // Receive viewMode as a prop
     // Colors for the "type of discovery" mode
@@ -143,8 +144,13 @@ const Timeline = ({ onYearChange, onYearHover, viewMode, selectedCountries,selec
             },
         },
         plugins: {
-            legend: { display: false }, // Disable default legend
-        },
+            legend: {
+                display: true, // Enable the legend
+                onClick: null, // Disable clicking
+                labels: {
+                    color: "white", // Optional: customize label color
+                },
+            },        },
         responsive: true,
         maintainAspectRatio: false,
         elements: { bar: { barThickness: 5 } },

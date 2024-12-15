@@ -24,6 +24,9 @@
         h1, h2 {
             color: #4db8ff;
         }
+        h3 {
+            color:#94a4ff;
+        }
         section {
             margin-bottom: 40px;
         }
@@ -34,13 +37,22 @@
         .content {
             padding: 10px 0;
         }
-        .image-container {
+        .image-container-vertical {
             display: flex;
             gap: 10px;
             justify-content: center;
         }
-        .image-container img {
-            width: 45%;
+        .image-container-vertical img {
+            width: 30%;
+            height: auto;
+        }
+        .image-container-hori {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .image-container-hori img {
+            width: 50%;
             height: auto;
         }
     </style>
@@ -54,9 +66,29 @@
         <h2>Background and Motivation</h2>
         <div class="content">
             <p>
-                Our project aims to create a web-based 3D experience that brings to life the rich narrative of space exploration over the past 2 years. Using Three.js and WebXR, we're crafting an accessible,
-                immersive visualization that invites users to interactively explore space missions, highlighting the immense achievements and challenges faced by those who reach beyond our planet.
-                Through engaging 3D graphics and VR-ready features, users will journey through key moments in space exploration history, witnessing the trials, failures, and triumphs that have driven humankind's quest to understand and expand our boundaries.</p>
+                We as a species has been curious about the space since prehistoric times. From Mayans and Aztecs to Copernicus and Galilei, we have always been looking into the skies and
+                wondering about what is out there. Since the 1950s and 1960s space exploration became a reality as our technology advanced, most notably the human landing on moon in 1969.
+                However, modern space exploration—though groundbreaking—often feels less dramatic to the public. Mars rovers, the International Space Station (ISS), and telescopes like James Webb achieve incredible feats, but these missions don't have the immediate, tangible excitement of a Moon landing.
+                While many people are aware of major events like starlink or Artemis I mission, most people don't really know what is ongoing with space exploration. Therefore, our project aims to create a web-based 3D experience that brings to life the rich narrative of space exploration since the human landing on moon in 1969 Using Three.js.
+                We want to craft an accessible, immersive visualization that invites users to interactively explore and learn about space missions, highlighting our accomplishments over the past 55 years.
+            </p>
+        </div>
+
+        <h2>Related Work</h2>
+        <div class="content">
+            <ul>
+                <li>
+                    We were inspired by the 3D model of the solar system built by
+                    <a href="https://www.solarsystemscope.com/" target="_blank">Solar System Scope</a>.
+                    We thought their 3D interactive scene allowed users to visualize the scale, distances, and dynamics planets, which are things we aimed for.
+                </li>
+                <li>
+                    <a href="https://eyes.nasa.gov/apps/solar-system/#/story/voyager_grand_tour?slide=slide_2" target="_blank">
+                        Eyes on the Solar System built by NASA
+                    </a> is also a very cool 3D visualization. We really like the tour animations, which show users the journey and trajectories of specific spacecrafts in a timeline.
+                    We adapted their structure of having storytelling through text on one side and a 3d scene of space on the other side.
+                </li>
+            </ul>
         </div>
     </section>
 
@@ -65,31 +97,30 @@
         <div class="content">
             <h3>Key Questions</h3>
             <ul>
-                <li>What milestones have we made since the first human landing on moon in 1969?</li>
+                <li>What are the notable achievements and milestones since human landing on moon in 1969?</li>
                 <li>How is space exploration a global effort and what are some key countries and agencies?</li>
-                <li>How far has human reached the universe and what exciting frontiers are next on our journey?</li>
-                <li>What are different types of progress we have made, including technology advancement, distance traveled, etc?</li>
+                <li>What is the progression of our expansion into space (the solar system)?</li>
+                <li>What type of missions and discoveries are we making? What are we seeking for in space?</li>
             </ul>
 
             <h3>Benefits</h3>
             <ul>
-                <li><strong>Enhanced Public Understanding</strong>: Viewers gain a deeper knowledge of space exploration and the technology behind it, bridging complex topics with clear visuals.</li>
+                <li><strong>Enhanced Public Understanding</strong>: Viewers gain a deeper knowledge of space exploration and the technology behind it</li>
                 <li><strong>Increased Interest in Space Science</strong>: Inspiring curiosity in space-related fields can attract more interest and support for space programs.</li>
-                <li><strong>Bridge Space Knowledge with Everyday Life</strong>: For instance, showing how certain satellite discoveries impact technology, climate science, or global communication.</li>
+                <li><strong>History through storytelling</strong>: Communicate the history of space exploration through engaging visualization</li>
+
             </ul>
         </div>
     </section>
 
     <section id="technology">
-        <h2>Technology Stack</h2>
+        <h2>Technology</h2>
         <div class="content">
             <ul>
-                <li><strong>Three.js:</strong> Core 3D graphics engine for creating interactive space visualizations</li>
-                <li><strong>WebXR:</strong> Optional immersive VR experience support</li>
-                <li><strong>JavaScript/HTML/CSS:</strong> Core web technologies for the application structure</li>
-                <li><strong>React:</strong> User interface development</li>
-                <li><strong>D3.js:</strong> Additional data visualization components</li>
-                <li><strong>WebGL:</strong> 3D rendering capabilities</li>
+                <li><strong>Three.js:</strong> The core 3D graphics library used for creating immersive and interactive space visualizations.</li>
+                <li><strong>Vite + React.js:</strong> Development tools for building responsive user interface.</li>
+                <li><strong>JavaScript/HTML/CSS:</strong> Scripting, structure, and styling.</li>
+                <li><strong>Vercel:</strong> Deployment of website</li>
             </ul>
         </div>
     </section>
@@ -97,118 +128,105 @@
     <section id="data">
         <h2>Data</h2>
         <div class="content">
-            <p>Our primary data source is the Timeline of Space Exploration from Wikipedia, which was carefully curated and categorized to suit our visualization needs:</p>
             <p><a href="https://en.wikipedia.org/wiki/Timeline_of_space_exploration#1960%E2%80%931969" target="_blank">Timeline of Space Exploration - Wikipedia</a></p>
-            <p>Data processing involved manual curation, categorization of events by type, standardization of data formats, and thorough verification for accuracy. We focused on significant space exploration milestones and achievements to create a comprehensive visualization of humanity's journey into space.</p>
-        </div>
-    </section>
+            <p>The original data was extracted from the Timeline of Space Exploration from Wikipedia which provides chronological information about key events in space exploration.</p>
+            <p>The table format in the source was analyzed, and its structure was noted (e.g., columns such as Date, Mission Achievements, Country/Organization, and Mission Name)
+            we manually counted the number of achievements in a given year as one of the entries. The data structure in JSON is the following:</p>
+            <pre>
+                {
+                    "year": 1972,
+                    "numberOfEvents": 5,
+                    "countriesInvolved": ["USA"],
+                    "discoveries": [
+                        {"country": "USA (NASA)",
+                        "missionName": "Pioneer 10",
+                        "TechAdvance": "First spacecraft on a trajectory out of the solar system.",
+                        "TechAdvance2": "First spacecraft to use all-nuclear electrical power (SNAP-19 RTGs).",
+                        "Contact": "First spacecraft to enter the asteroid belt.",
+                        "Contact2": "First spacecraft beyond the orbit of Mars."},
 
-    <section id="must have features">
-        <h2>Must Have Features</h2>
+                        {"country": "USA (NASA)",
+                        "missionName": "SAS 2",
+                        "TechAdvance": "First orbital gamma ray observatory."}
+                    ]
+                },
+            </pre>
+        </div>
+
+        <h2>Exploratory Data Analysis</h2>
         <div class="content">
-            <ul>
-                <li><strong>Major Space Events Timeline</strong>
-                    <ul>
-                        <li>Annual timeline of significant space events</li>
-                        <li>Click interaction for users to select specific years</li>
-                        <li>Interactive window for filtering space events by type (Technological Achievement, Human Spaceflight, Planetary Exploration)</li>
-                    </ul>
-                </li>
-                <li><strong>Interactive Timeline</strong>
-                    <ul>
-                        <li>Use a slider to let users scroll through time</li>
-                        <li>Highlight missions that occurred during the selected period</li>
-                        <li>Filter options for mission types, countries, and exploration targets</li>
-                    </ul>
-                </li>
-                <li><strong>Launch Location and Date Visualization</strong>
-                    <ul>
-                        <li>Clearly display each object's launch site and date</li>
-                        <li>Provide spatial and temporal context to help users track the journey from Earth to space</li>
-                        <li>Visualize targeted planetary bodies for exploration missions</li>
-                    </ul>
-                </li>
-                <li><strong>Interactive Info Panels</strong>
-                    <ul>
-                        <li>Each object includes info panels detailing scientific data, mission objectives, and relevant imagery</li>
-                        <li>These panels enhance the educational aspect, offering users an in-depth understanding of the purpose and achievements of each mission</li>
-                        <li>Display country of origin, mission name, and specific achievements</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="optional features">
-        <h2>Optional Features</h2>
-        <div class="content">
-            <ul>
-                <li>Real-Time Orbit Display: Visualize satellites and other objects in their current orbits around Earth, providing users with an authentic sense of their position and movement in space.</li>
-                <li>Astronaut's Perspective Simulation: Allow users to "float" in space around key objects like the ISS or specific satellites, creating an immersive experience that simulates an astronaut's view and proximity to these technologies.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="initial designs">
-        <h2>Initial Designs</h2>
-        <div class="image-container">
-            <img src="./public/static/process/ID.png">
-            <img src="./public/static/process/ID2.png">
-            <img src="./public/static/process/ID3.png">
+            <p>We wanted to use a timeline (similar to the timeline in Assignment 2 the electoral map) to visualize the data at first. So we first used d3,
+            and we wanted to create a timeline using SVG shapes like circle and lines. But we realized this has limited interaction as user would just be clicking on a year and
+            see texts about a mission. In addition, it is not an aesthetic design with 55 circles in a row or column. Lastly, it does not show the pattern and trend of space exploration. Since we want to show the holistic trend of space exploration progress,
+            we want to be able to see how the number of notable achievements fluctuates from year to year. Therefore, we decided to make a vertical bar chart, where the x-axis
+            is the number of milestones and the y-axis are the years. To achieve this we used chart.js in our react environment to create an interactive timeline/bar chart.</p>
         </div>
     </section>
 
     <section id="iterations">
-        <h2>Different Iterations</h2>
+        <h2>Design/Implementation Evolution</h2>
         <div class="content">
-            <p><strong>First Iteration</strong></p>
+
+            <h3>Initial Brainstorm/Milestone 1</h3>
+            <div class="image-container-vertical">
+                <img src="../public/static/process/ID.png">
+                <img src="../public/static/process/ID2.png">
+                <img src="../public/static/process/ID3.png">
+            </div>
+
+            <p>The initial design was focused on the trajectory of space rocket launches in each year. We imagined when user click on a year, they will be able to see a 3D animation of rocket launch.
+            In addition, we wanted to show whether the space launch was successful or not, by highlighting the launch location green or red. The dataset that we were planning to use was a launch log of
+                <a href="https://planet4589.org/space/gcat/data/derived/launchlog.html" target="_blank">all the spacecraft launched into space until current time</a>.
+            and has the details about whether it was successful or not. </p>
+
+            <div class="image-container-hori">
+                <img src="../public/static/process/milestone1.jpeg">
+            </div>
+
+            <p>Based on milestone 1 feedback, we realized that our design of visualization didn't answer our questions and also was incomplete. We then discussed and shifted our focus from visualizing the trajectory of spacecrafts
+            and focus on the success and failures of individual spacecraft to notable achievements and milestones of each year. We reflected on our motivation and reconsidered our key questions. We then switched our data to the current one and redesigned the visualization</p>
+
+            <h3>Milestone 2</h3>
+
+            <div class="image-container-hori">
+                <img src="../public/static/process/milestone2.png">
+                <img src="../public/static/process/milestone22.png">
+            </div>
+
+            <div class="image-container-hori">
+                <img src="../public/static/process/timelime.png">
+                <img src="../public/static/process/detail.png">
+            </div>
+
+            <p>At this stage we wanted three main components in our visualization. </p>
             <ul>
-                <li>processed and analyzed data (by year, success or failed, and country)</li>
-                <li>Created a 3D scene with camera and lighting with three.js</li>
-                <li>Added a rotating Earth object</li>
-                <li>Added dynamic location marker with green and red rings to indicate the location of launch</li>
-                <li>Added side panel to interact with the visualization</li>
+                <li><strong>Timeline:</strong> The timeline is color coded by country. Based on the feedback in class, we made the colors related to the countries they represent. For example, USA is blue and USSR is red.
+                    Initially, we made tooltips to show up when hover over a year, and shows the country and the number of milestones in that year. However, later we decided that this information is already presented through
+                    the legend and the axis, so we changed the hover state to trigger the detailed information on each milestone. We also added a clicked state for user to interact with the 3D solar system.</li>
+                <br>
+                <li><strong>3D Solar System:</strong> After building the 3D scene, we were considering how to connect it to the timeline so that it can show certain information. We initially plan to manipulate the camera position
+                    to zoom out from Earth as space exploration expands since 1969. On top of that we wanted to animate the discovery of new planets by creating trajectory lines.
+                    However, we didn't figure out how to make implement this. Therefore, to show expansion we decided to gradually light up the planets. </li>
+                <br>
+                <li><strong>Milestone Information:</strong> The most important part of our visualization are the milestones themselves. We want people to learn about the less known accomplishments in space exploration.
+                    We wanted to display textual information in an aesthetically pleasing way without overloading the users with texts. Initially we had a side panel on the right dedicated to milestone information. However,
+                    we thought it looked not interesting enough to attract people's attention. Therefore, we put the text in the center of the page instead and with vibrant colors. We also spent time choosing a futuristic and
+                    space related color palette and font. In this version, each accomplishment will show up for ~30s and automatically change to the next one. We also thought it was a good idea to add a detailed view panel for
+                    each planet, for people to learn more about a specific planet like Mercury. </li>
             </ul>
 
-            <p><strong>Second Iteration (current)</strong></p>
-            <ul>
-                <li>Implemented animated display of annual aerospace events and participating countries</li>
-                <li>Added 3D visualization of explored planets for each year</li>
-                <li>Enhanced 3D animations with text overlays for better understanding</li>
-            </ul>
+
+            <h3>Final Version/User Study</h3>
+
+            <div class="image-container-hori">
+                <img src="../public/static/process/final1.png">
+            </div>
+
+
         </div>
     </section>
 
-    <section id="next-steps">
-        <h2>Next Steps</h2>
-        <div class="content">
-            <ul>
-                <li><strong>Audio Enhancement</strong>
-                    <ul>
-                        <li>Add background music to create immersive atmosphere</li>
-                        <li>Implement sound effects for interactive elements</li>
-                        <li>Add audio controls for user preference</li>
-                    </ul>
-                </li>
-                <li><strong>Sidebar Improvements</strong>
-                    <ul>
-                        <li>Add collapsible functionality to the side panel</li>
-                        <li>Implement smooth transition animations</li>
-                        <li>Create toggle button for panel visibility</li>
-                    </ul>
-                </li>
-                <li><strong>Planetary Interactions</strong>
-                    <ul>
-                        <li>Add interactive effects between planets</li>
-                        <li>Implement gravitational visualization effects</li>
-                        <li>Create dynamic orbital paths between celestial bodies</li>
-                    </ul>
-                </li>
-                <li>Add light rays to indicate space launch</li>
-                <li>Implement data into the visualization</li>
-            </ul>
-        </div>
-    </section>
+
 </div>
 </body>
 </html>
