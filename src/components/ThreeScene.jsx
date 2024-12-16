@@ -81,6 +81,7 @@ const ThreeScene = ({ year, containerRef}) => {
             labelContext.font = '70px Arial';
             labelContext.fillStyle = 'white';
             labelContext.textAlign = 'center';
+            labelContext.textBaseline = 'middle';
             labelContext.fillText(name, 128, 32);
 
             const labelTexture = new THREE.CanvasTexture(labelCanvas);
