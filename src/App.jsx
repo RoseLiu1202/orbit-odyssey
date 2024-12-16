@@ -145,7 +145,7 @@ const App = () => {
 
                 {/* Process Book Button */}
                 <div className="process-book-link">
-                    <a href="src/processbook.html" target="_blank" rel="noopener noreferrer">
+                    <a href="public/processbook.html" target="_blank" rel="noopener noreferrer">
                         Process Book
                     </a>
                 </div>
