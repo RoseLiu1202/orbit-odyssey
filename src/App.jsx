@@ -110,35 +110,35 @@ const App = () => {
                 />
             </div>
 
-            <div className = "graphicScenes" ref={graphicScenesRef}>
-            {/* 3D Scene Section */}
-            <div className="three-container">
-                <ThreeScene
-                    year={selectedYear}
-                    containerRef={graphicScenesRef}
-                />
-            </div>
+            <div className="graphicScenes" ref={graphicScenesRef}>
+                {/* 3D Scene Section */}
+                <div className="three-container">
+                    <ThreeScene
+                        year={selectedYear}
+                        containerRef={graphicScenesRef}
+                    />
+                </div>
 
-            {/* Info Card Section */}
-            <div className="info-card-container">
-                <InfoCard
-                    year={hoveredYear || selectedYear}
-                    data={timelineData}
-                    viewMode={viewMode} // Pass viewMode to InfoCard
-                    selectedCountries={selectedCountries}
-                    selectedDiscoveries={selectedDiscoveries}
-                />
-            </div>
+                {/* Info Card Section */}
+                <div className="info-card-container">
+                    <InfoCard
+                        year={hoveredYear || selectedYear}
+                        data={timelineData}
+                        viewMode={viewMode} // Pass viewMode to InfoCard
+                        selectedCountries={selectedCountries}
+                        selectedDiscoveries={selectedDiscoveries}
+                    />
+                </div>
 
-            {/* Planet Focus Section */}
-            {/*<EarthFocus*/}
-            {/*    year={selectedYear}*/}
-            {/*/>*/}
+                {/* Planet Focus Section */}
+                {/*<EarthFocus*/}
+                {/*    year={selectedYear}*/}
+                {/*/>*/}
             </div>
             <div className="bottom-links">
                 {/* Project Video Button */}
                 <div className="project-video-link">
-                    <a href="https://youtube.com/placeholder" target="_blank" rel="noopener noreferrer">
+                    <a href="https://youtu.be/_J6Po-FmBV4" target="_blank" rel="noopener noreferrer">
                         Project Video
                     </a>
                 </div>
@@ -147,6 +147,14 @@ const App = () => {
                 <div className="process-book-link">
                     <a href="/processbook.html" target="_blank" rel="noopener noreferrer">
                         Process Book
+                    </a>
+                </div>
+
+                {/* GitHub Button */}
+                <div className="github-link">
+                    <a href="https://github.com/RoseLiu1202/orbit-odyssey.git" target="_blank"
+                       rel="noopener noreferrer">
+                        GitHub Repo
                     </a>
                 </div>
             </div>
