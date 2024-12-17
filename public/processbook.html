@@ -131,7 +131,7 @@
             <p><a href="https://en.wikipedia.org/wiki/Timeline_of_space_exploration#1960%E2%80%931969" target="_blank">Timeline of Space Exploration - Wikipedia</a></p>
             <p>The original data was extracted from the Timeline of Space Exploration from Wikipedia which provides chronological information about key events in space exploration.</p>
             <p>The table format in the source was analyzed, and its structure was noted (e.g., columns such as Date, Mission Achievements, Country/Organization, and Mission Name)
-            we manually counted the number of achievements in a given year as one of the entries. The data structure in JSON is the following:</p>
+                we manually counted the number of achievements in a given year as one of the entries. The data structure in JSON is the following:</p>
             <pre>
                 {
                     "year": 1972,
@@ -156,10 +156,10 @@
         <h2>Exploratory Data Analysis</h2>
         <div class="content">
             <p>We wanted to use a timeline (similar to the timeline in Assignment 2 the electoral map) to visualize the data at first. So we first used d3,
-            and we wanted to create a timeline using SVG shapes like circle and lines. But we realized this has limited interaction as user would just be clicking on a year and
-            see texts about a mission. In addition, it is not an aesthetic design with 55 circles in a row or column. Lastly, it does not show the pattern and trend of space exploration. Since we want to show the holistic trend of space exploration progress,
-            we want to be able to see how the number of notable achievements fluctuates from year to year. Therefore, we decided to make a vertical bar chart, where the x-axis
-            is the number of milestones and the y-axis are the years. To achieve this we used chart.js in our react environment to create an interactive timeline/bar chart.</p>
+                and we wanted to create a timeline using SVG shapes like circle and lines. But we realized this has limited interaction as user would just be clicking on a year and
+                see texts about a mission. In addition, it is not an aesthetic design with 55 circles in a row or column. Lastly, it does not show the pattern and trend of space exploration. Since we want to show the holistic trend of space exploration progress,
+                we want to be able to see how the number of notable achievements fluctuates from year to year. Therefore, we decided to make a vertical bar chart, where the x-axis
+                is the number of milestones and the y-axis are the years. To achieve this we used chart.js in our react environment to create an interactive timeline/bar chart.</p>
         </div>
     </section>
 
@@ -175,16 +175,16 @@
             </div>
 
             <p>The initial design was focused on the trajectory of space rocket launches in each year. We imagined when user click on a year, they will be able to see a 3D animation of rocket launch.
-            In addition, we wanted to show whether the space launch was successful or not, by highlighting the launch location green or red. The dataset that we were planning to use was a launch log of
+                In addition, we wanted to show whether the space launch was successful or not, by highlighting the launch location green or red. The dataset that we were planning to use was a launch log of
                 <a href="https://planet4589.org/space/gcat/data/derived/launchlog.html" target="_blank">all the spacecraft launched into space until current time</a>.
-            and has the details about whether it was successful or not. </p>
+                and has the details about whether it was successful or not. </p>
 
             <div class="image-container-hori">
                 <img src="static/process/milestone1.jpeg">
             </div>
 
             <p>Based on milestone 1 feedback, we realized that our design of visualization didn't answer our questions and also was incomplete. We then discussed and shifted our focus from visualizing the trajectory of spacecrafts
-            and focus on the success and failures of individual spacecraft to notable achievements and milestones of each year. We reflected on our motivation and reconsidered our key questions. We then switched our data to the current one and redesigned the visualization</p>
+                and focus on the success and failures of individual spacecraft to notable achievements and milestones of each year. We reflected on our motivation and reconsidered our key questions. We then switched our data to the current one and redesigned the visualization</p>
 
             <h3>Milestone 2</h3>
 
@@ -228,20 +228,65 @@
                 <li>Issue: Not clear what the x-axis represents. Solution: We moved the x-axis from the bottom to the top of the timeline.</li>
                 <li>Issue: It is not clear that you can click on the legend to interact with the timeline (removing the selected country from timeline)
                     Solution: We implemented the selection interaction to the top of the timeline and used a dropdown menu instead. This way it is intuitive that
-                user can select specific country or discoveries.</li>
+                    user can select specific country or discoveries.</li>
                 <li>Issue: Users are not sure if they can interact with the events and if they are progressing at all. The progress bar is confusing as
                     user cannot control the information they see. Solution: We added forward and backward options for user to control the info card. </li>
                 <li>Issue: Even though the dropdown menu is intuitive, on the presentation people gave us feedback on that the color of each country is unclear. Solution: We added back the color legend</li>
                 <li>Issue: The planet names are too small. Solution: We increased the size of the names. </li>
             </ul>
 
-            <h2>Implementation</h2>
 
 
         </div>
 
     </section>
+    <section id="implementation">
+        <h2>Implementation</h2>
+        <div class="content">
+            <p>In the final implementation, we combined interactivity, storytelling, and visual aesthetics to create an engaging user experience. The following components were implemented:</p>
+            <ul>
+                <li>
+                    <strong>Interactive Timeline:</strong> A vertical bar chart powered by Chart.js allows users to explore the progression of space exploration milestones from 1969 onwards. Each bar represents the number of milestones achieved in a given year, and the bars are color-coded by country (e.g., USA in blue, USSR in red). Users can filter data using an intuitive dropdown menu for country selection.
+                </li>
+                <li>
+                    <strong>3D Solar System Visualization:</strong> We used Three.js to create an interactive 3D solar system. As users interact with the timeline or explore specific years, planets gradually light up, visually representing humanity's expansion into the solar system.
+                </li>
+                <li>
+                    <strong>Dynamic Milestone Cards:</strong> For every milestone, a detailed card appears in the center of the screen, providing mission-specific information such as mission name, technology advancement, and discoveries. Users can navigate between milestones using forward and backward controls.
+                </li>
+            </ul>
+        </div>
+    </section>
 
+    <section id="evaluation">
+        <h2>Evaluation</h2>
+        <div class="content">
+            <h3>Insights from the Data</h3>
+            <p>Using the visualizations, we uncovered several insights about the progression of space exploration:</p>
+            <ul>
+                <li>There was a clear surge in space missions in the 1970s, primarily driven by the USA and USSR.</li>
+                <li>The number of achievements declined in the late 1980s and early 1990s, but there was a resurgence in the 2000s with the contributions of new players like China and private companies.</li>
+                <li>Modern milestones often focus on interplanetary exploration, deep space telescopes, and international collaborations like the ISS.</li>
+            </ul>
+
+            <h3>Effectiveness of the Visualization</h3>
+            <p>Our visualization effectively addresses the key questions:</p>
+            <ul>
+                <li><strong>Notable Achievements:</strong> The milestones and interactive cards highlight key missions across decades.</li>
+                <li><strong>Global Effort:</strong> Color-coded visualizations clearly showcase contributions from various countries.</li>
+                <li><strong>Expansion into Space:</strong> The 3D solar system vividly represents the progression of humanity's exploration beyond Earth.</li>
+            </ul>
+
+            <h3>Limitations and Future Improvements</h3>
+            <ul>
+                <li>While the 3D solar system is visually impressive, the lack of trajectory animations limits the dynamic storytelling potential.</li>
+                <li>We could improve the interactivity of the solar system by allowing users to zoom into specific planets and view related missions.</li>
+                <li>Including real-time updates on ongoing missions (e.g., NASA or SpaceX data feeds) would enhance the educational value of the visualization.</li>
+            </ul>
+
+            <p>Overall, the final visualization successfully balances aesthetics, interactivity, and storytelling to engage users and promote a deeper understanding of space exploration.</p>
+        </div>
+    </section>
 
 </div>
 </body>
