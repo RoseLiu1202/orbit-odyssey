@@ -4,9 +4,11 @@ import Timeline from "./components/timeline.jsx";
 import InfoCard from "./components/InfoCard.jsx";
 import EarthFocus from './components/earthFocus.jsx';
 import timelineData from './data/timelineData.json';
+import Popup from "./components/popup.jsx";
 import './styles/App.css';
 
 const App = () => {
+    const [showPopup, setShowPopup] = useState(true); // State to control popup visibility
     const graphicScenesRef = useRef(null);
 
     const [selectedYear, setSelectedYear] = useState(1968);
@@ -159,6 +161,7 @@ const App = () => {
                 </div>
             </div>
 
+            {showPopup && <Popup onClose={() => setShowPopup(false)} />}
 
         </div>
     );

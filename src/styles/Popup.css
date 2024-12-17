@@ -1,0 +1,88 @@
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup Content */
+.popup-content {
+    width: 60%; /* Wider popup */
+    max-width: 800px;
+    background: linear-gradient(145deg, #000000, #1a1f33);
+    border: 1px solid #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    color: #ffffff;
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    position: relative;
+    overflow-y: auto;
+    max-height: 80%;
+}
+
+/* Highlighted Text */
+.highlight {
+    color: #00bfff; /* Accent color */
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #ff4d4d;
+}
+
+/* Intro Text */
+.intro-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Content Section */
+.content-section {
+    text-align: left;
+    margin: 20px auto;
+}
+
+/* How to Use Section */
+.how-to-use {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.how-to-use ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.how-to-use li {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+/* Call to Action */
+.cta {
+    margin-top: 30px;
+    font-style: italic;
+    font-size: 1.1rem;
+}
