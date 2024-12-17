@@ -29,7 +29,7 @@ const Popup = ({ onClose }) => {
                         While groundbreaking missions like Mars rovers, the ISS, and the James Webb Telescope continue today, they often lack the tangible excitement of earlier milestones.
                     </p>
                     <p>
-                        This interactive 3D visualization highlights major space missions, achievements, and the global effort to explore beyond Earth.                    </p>
+                        This interactive 3D visualization aims to highlights all major space missions and achievements since 1969 and to show the global effort to explore beyond Earth.                    </p>
                 </div>
 
                 {/* How to Use Section */}
